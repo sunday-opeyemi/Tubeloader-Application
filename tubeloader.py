@@ -47,8 +47,8 @@ class YouTubeDownloder():
         self.info.destroy()
         try:
             self.dload.config(state=DISABLED, bg='red')
-            self.yt = YouTube(self.urllink.get())
-            self.stream = self.yt.streams.get_highest_resolution()
+            self.yt = YouTube(str(self.urllink.get()))
+            self.stream = self.yt.streams.first()
             self.stream.download(os.path.expanduser("~")+"\\Downloads")
             self.pb_stop()
             self.info.destroy()
